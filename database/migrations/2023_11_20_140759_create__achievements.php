@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cabinets', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->integer('number');
+        Schema::create('Achievements', function (Blueprint $table) {
+            $table->id('id ачивки'); 
+            $table->string('имя ачивки'); 
+            $table->integer('id пользователя');
+            $table->integer('id игры');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cabinets');
+        Schema::dropIfExists('Achievements');
     }
 };
