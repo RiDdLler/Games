@@ -1,37 +1,33 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\CabinetController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Cabinet;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\ShowHistoryController;
+use App\Http\Controllers\AchievementsController;
+use App\Http\Controllers\ShowAchievementsController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-Route::get('/hi',[CabinetController::class, 'hello']);
-Route::get('/get',[CabinetController::class, 'get']);
-Route::post('/post',[CabinetController::class, 'post']);
-Route::put('/put',[CabinetController::class, 'put']);
-Route::delete('/delete',[CabinetController::class, 'delete']);
-Route::get('/get_cabinet',[CabinetController::class, 'get_cabinet']);
-Route::get('/get_c',[CabinetController::class, 'get_c']);
+// Маршруты для UserController
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
+Route::post('/change-password', [UserController::class, 'changePassword']);
+Route::get('/view-profile', [UserController::class, 'viewProfile']);
 
+// Маршруты для GameController
+Route::post('/choose-game', [GameController::class, 'chooseGame']);
+Route::get('/play-2048', [GameController::class, 'play2048']);
+Route::get('/play-sudoku', [GameController::class, 'playSudoku']);
 
-Route::get('/cabinet/{id}', [CabinetController::class, 'getItemById']);
-Route::put('/cabinet/{id}', [CabinetController::class, 'updateCabinet']);
-Route::delete('/cabinet/{id}', [CabinetController::class, 'deleteCabinet']);
+// Маршруты для HistoryController
+Route::post('/add-game-history', [HistoryController::class, 'addGameHistory']);
+Route::get('/show-game-history', [ShowHistoryController::class, 'showGameHistory']);
 
+// Маршруты для AchievementsController
+Route::get('/check-achievements', [AchievementsController::class, 'checkAchievements']);
 
-Route::post('/createCabinet',[CabinetController::class, 'create']);
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Маршруты для ShowAchievementsController
+Route::get('/show-user-achievements', [ShowAchievementsController::class, 'showUserAchievements']);
