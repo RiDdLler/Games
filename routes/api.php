@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\HistoryController;
@@ -12,10 +11,7 @@ use App\Http\Controllers\ShowAchievementsController;
 
 // Маршруты для UserController
 Route::post('/register', [UserController::class, 'register']);
-Route::post('/login', [UserController::class, 'login']);
-Route::get('/logout', [UserController::class, 'logout']);
-Route::post('/change-password', [UserController::class, 'changePassword']);
-Route::get('/view-profile', [UserController::class, 'viewProfile']);
+Route::get('/username', [UserController::class, 'username']);
 
 // Маршруты для GameController
 Route::post('/choose-game', [GameController::class, 'chooseGame']);
