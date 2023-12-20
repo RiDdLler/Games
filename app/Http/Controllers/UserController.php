@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller; 
+
+
 
 class UserController extends Controller
 {
@@ -26,8 +31,9 @@ class UserController extends Controller
         // Создание нового пользователя
         $user = User::create([
             'username' => $request->input('username'),
-            'password' => hash($request->input('password')),
+            'password' => Hash::make($request->input('password')),
         ]);
+        
 
         // Отправка успешного ответа
         return response()->json(['message' => 'User registered successfully', 'user' => $user], 201);
