@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Http\Controllers;
 
@@ -14,5 +14,5 @@ class ShowAchievmentsController extends Controller
         return view('user_achievements', ['userAchievements' => $userAchievements]);
         // Подставьте ваше представление и настройте его соответствующим образом
     }
-}
+} -->
 

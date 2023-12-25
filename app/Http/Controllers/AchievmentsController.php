@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\UserAchievement; // Assuming you have a model for UserAchievement
+use App\Models\UserAchievement;
 
 class AchievementsController extends Controller
 {
@@ -42,7 +42,13 @@ class AchievementsController extends Controller
             // Дополнительная логика, например, обновление интерфейса или запись в лог
         }
     }
-}
 
-//скрипт ачивок раз в ~10мин schedule
-//вывод чивок
+    // Просмотр достижений пользователя
+    public function showUserAchievements() {
+        // Получение достижений текущего пользователя
+        $userAchievements = UserAchievement::where('user_id', auth()->id())->get();
+
+        return view('user_achievements', ['userAchievements' => $userAchievements]);
+        // Подставьте ваше представление и настройте его соответствующим образом
+    }
+}
