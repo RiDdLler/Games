@@ -26,15 +26,6 @@ class HistoryController extends Controller
 
     // Просмотр истории сыгранных игр
     
-    class ShowHistoryController extends Controller
-    {
-        // Просмотр истории сыгранных игр
-        public function showGameHistory(Request $request) {
-            // Получение данных об истории игр текущего пользователя
-            $userHistory = GameHistory::where('user_id', auth()->id())->get();
-    
-            return ['userHistory' => $userHistory];
-        }
-    }
+
     
 }

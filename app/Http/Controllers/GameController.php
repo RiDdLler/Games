@@ -13,9 +13,10 @@ class GameController extends Controller
     {
         // Получение выбора пользователя
         $games = Game::all();
-        return games;
+        return response()->json($games);
 
         // Вывод списка игр из базы данных
        
     }
+
 }

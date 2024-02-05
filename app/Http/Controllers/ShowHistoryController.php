@@ -15,4 +15,3 @@ class ShowHistoryController extends Controller
         return ['userHistory' => $userHistory];
     }
 }
- -->

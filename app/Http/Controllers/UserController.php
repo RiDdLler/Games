@@ -56,7 +56,7 @@ class UserController extends Controller
         // Аутентификация пользователя
         if (Auth::attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
             $user = Auth::user();
-            $token = $user->createToken('MyApp')->accessToken;
+            $token = $user->createToken(env('APP_NAME'))->plainTextToken;
 
             return response()->json(['message' => 'Login successful', 'user' => $user, 'access_token' => $token]);
         } else {

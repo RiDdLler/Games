@@ -11,6 +11,7 @@ use App\Http\Controllers\ShowAchievementsController;
 
 // Маршруты для UserController
 Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
 Route::get('/username', [UserController::class, 'username']);
 
 // Маршруты для GameController
