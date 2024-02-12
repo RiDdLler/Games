@@ -28,3 +28,7 @@ Route::get('/check-achievements', [AchievementsController::class, 'checkAchievem
 
 // Маршруты для ShowAchievementsController
 Route::get('/show-user-achievements', [ShowAchievementsController::class, 'showUserAchievements']);
+
+// Маршрут для обработки AJAX-запроса авторизации
+Route::post('/ajax-login', [AuthController::class, 'ajaxLogin'])->name('ajax.login');
+
